@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <p class="jm"></p>
+</body>
+<script>
+    fetch("http://127.0.0.1:5000/transcribe", {
+            method: "post",
+            body: JSON.stringify({
+                audio_url: "https://res.cloudinary.com/dvauarkh6/video/upload/v1700954374/audio/fiule.wav",
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+                    // Add any other headers if needed
+            },
+        })
+        .then((res) => {
+            return res.json()
+        })
+        .then((res) => {
+            console.log(res);
+        })
+        .catch((er) => {
+            console.log(er);
+        });
+</script>
+
+</html>
